@@ -9,6 +9,11 @@ const port = process.env.PORT || 3000;
 // Initialize Telegram bot
 const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, { polling: false });
 
+// Root route
+app.get('/', (req, res) => {
+    res.send('NASA Telegram Bot is running!');
+});
+
 // Function to fetch NASA APOD
 async function getNasaAPOD() {
     try {
@@ -65,7 +70,6 @@ ${apodData.explanation}
 `;
 
     await postToTelegram(message, apodData.hdurl || apodData.url);
-    
 }
 
 // Endpoint to manually trigger a post
@@ -89,7 +93,7 @@ app.get('/health', (req, res) => {
         nasaKey: process.env.NASA_API_KEY ? 'Present' : 'Missing'
     });
 });
- 
+
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
     console.log('Bot configured for channel:', process.env.TELEGRAM_CHANNEL_ID);
