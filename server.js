@@ -88,7 +88,7 @@ app.get('/health', (req, res) => {
         nasaKey: process.env.NASA_API_KEY ? 'Present' : 'Missing'
     });
 });
-
+ 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
     console.log('Bot configured for channel:', process.env.TELEGRAM_CHANNEL_ID);

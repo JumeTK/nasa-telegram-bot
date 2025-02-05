@@ -5,17 +5,5 @@
       "src": "server.js",
       "use": "@vercel/node"
     }
-  ],
-  "routes": [
-    {
-      "src": "/trigger-post",
-      "methods": ["GET"],
-      "dest": "/server.js"
-    },
-    {
-      "src": "/health",
-      "methods": ["GET"],
-      "dest": "/server.js"
-    }
   ]
 } 
